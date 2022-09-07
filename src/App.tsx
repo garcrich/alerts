@@ -1,6 +1,6 @@
 import './App.scss';
 import AlertManager from './components/AlertManager';
-import AlertForm from './components/InputForm/AlertForm';
+import AlertForm from './components/AlertForm';
 
 function App() {
   return (

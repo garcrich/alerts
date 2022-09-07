@@ -4,11 +4,14 @@ const AlertForm = () => {
   return (
     <Box
       width='18.75em'
-      margin="0 auto"
       component="form"
+      position='absolute'
+      top='25vh'
+      left='50vh'
       sx={{
         '& .MuiTextField-root': { m: 1 },
-      }}
+      }
+      }
       textAlign='center'
     >
       <Typography variant="h4" component="h1" mt={2} mb={2}>
@@ -65,7 +68,7 @@ const AlertForm = () => {
           Set Alert
         </Button>
       </Box>
-    </Box>
+    </Box >
   );
 }
 
