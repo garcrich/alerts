@@ -9,7 +9,7 @@ export type AlertProps = {
 }
 
 const Alert: FC<AlertProps> = ({ severity, title, link, message }) => {
-  const hasLink = link !== '' && link !== undefined
+  const hasLink: boolean = link !== '' && link !== undefined
   return (
     <MaterailAlert onClose={() => { }} severity={severity}>
       <>

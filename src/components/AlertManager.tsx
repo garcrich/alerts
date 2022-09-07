@@ -1,6 +1,27 @@
 import { Stack } from "@mui/material";
-import { FC } from "react";
-import Alert from "./Alert/Alert";
+import React, { FC, useReducer } from "react";
+import Alert, { AlertProps } from "./Alert/Alert";
+
+
+export const useAlertReducer = () => {
+  const initialState: [] = []
+
+  type actionType = {
+    type: 'ADD_ALERT' | 'REMOVE_ALERT'
+    alert: AlertProps,
+  }
+
+  const reducer = (state: [AlertProps], action: actionType) => {
+    switch (action.type) {
+      case 'ADD_ALERT':
+        return [...state, action.alert];
+      case 'REMOVE_ALERT':
+        return state.filter(alert => alert.message !== action.alert.message)
+      default:
+        throw new Error();
+    }
+  }
+}
 
 const AlertManager: FC = () => {
   return (
