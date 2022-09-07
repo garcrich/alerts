@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 
-import Alert, { AlertProps } from './Alert';
+import Alert, { AlertProps, MessageBody } from './Alert';
 
 describe('Alerts suite', () => {
 
@@ -20,14 +20,12 @@ describe('Alerts suite', () => {
   });
 
   test('renders title', async () => {
-    const props: AlertProps = {
-      severity: 'error',
+    const props: Omit<AlertProps, 'severity'> = {
       title: 'testing',
       message: 'unit test',
-      link: 'https://www.google.com',
     }
 
-    render(<Alert {...props} />);
+    render(<MessageBody {...props} />);
 
     const alertTitle = screen.getByTestId(`${props.title}`)
 

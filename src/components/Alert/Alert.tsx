@@ -9,19 +9,27 @@ export type AlertProps = {
 }
 
 const Alert: FC<AlertProps> = ({ severity, title, link, message }) => {
-  const hasLink = link !== '' || link !== undefined
+  const hasLink = link !== '' && link !== undefined
   return (
     <MaterailAlert onClose={() => { }} severity={severity}>
       <>
-
-        {title && <AlertTitle data-testid={`${title}`}>{title}</AlertTitle>}
         {hasLink ?
-
-          <Link href={link} target="_blank" rel="noreferrer">{message}</Link> :
-          { message }
+          <Link href={link} target="_blank" rel="noreferrer">
+            <MessageBody title={title} message={message} />
+          </Link> :
+          <MessageBody title={title} message={message} />
         }
       </>
     </MaterailAlert>
+  )
+}
+
+export const MessageBody: FC<Omit<AlertProps, 'severity'>> = ({ title, message }) => {
+  return (
+    <>
+      {title && <AlertTitle data-testid={`${title}`}>{title}</AlertTitle>}
+      {message}
+    </>
   )
 }
 
