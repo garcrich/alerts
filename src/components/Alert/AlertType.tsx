@@ -5,6 +5,6 @@ export type AlertProps = {
   title: string,
   message: string,
   link: string,
-  duration: number | number[],
+  duration: number,
   id: string | null
 }

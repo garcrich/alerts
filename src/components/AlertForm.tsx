@@ -26,15 +26,24 @@ const AlertForm: FC<any> = ({ dispatch }) => {
     }
 
     const protocolLink: string = setLinkProtocol(link);
-
+    setAlertSubmission({ ...alertSubmission, link: protocolLink })
     dispatch({
       type: 'ADD_ALERT',
-      payload: { ...alertSubmission, link: protocolLink }
+      payload: alertSubmission
     })
+
+    setTimeout(() => {
+      dispatch({
+        type: 'REMOVE_ALERT',
+        payload: alertSubmission
+      })
+    }, alertSubmission.duration * 1000)
+
     setAlertSubmission(defaultState)
   }
 
-  const handleSliderChange = (event: Event, duration: number | number[]) => {
+  const handleSliderChange = (event: Event, time: number | number[]) => {
+    const duration = time as number;
     setAlertSubmission({ ...alertSubmission, duration });
   };
 
