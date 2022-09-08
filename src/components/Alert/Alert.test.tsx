@@ -13,7 +13,7 @@ describe('Alerts suite', () => {
       message: 'unit test',
       link: 'https://www.google.com',
       duration: 10,
-      id: 1
+      id: '1'
     }
 
     render(<Alert {...props} />);
@@ -27,7 +27,7 @@ describe('Alerts suite', () => {
       title: 'testing',
       message: 'unit test',
       link: 'https://www.google.com',
-      id: 1
+      id: '1'
     }
 
     render(<MessageBody {...props} />);
@@ -44,7 +44,7 @@ describe('Alerts suite', () => {
       message: 'unit test',
       link: 'https://www.google.com',
       duration: 10,
-      id: 1
+      id: '1'
     }
 
     render(<Alert {...props} />);
@@ -61,7 +61,7 @@ describe('Alerts suite', () => {
       message: 'unit test',
       link: 'https://www.google.com',
       duration: 10,
-      id: 1
+      id: '1'
     }
 
     render(<Alert {...props} />);
@@ -78,7 +78,7 @@ describe('Alerts suite', () => {
       message: 'unit test',
       link: 'https://www.google.com',
       duration: 10,
-      id: 1
+      id: '1'
     }
 
     render(<Alert {...props} />);
@@ -95,7 +95,7 @@ describe('Alerts suite', () => {
       message: 'unit test',
       link: 'https://www.google.com',
       duration: 10,
-      id: 1
+      id: '1'
     }
 
     render(<Alert {...props} />);

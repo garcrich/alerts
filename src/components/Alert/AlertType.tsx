@@ -6,5 +6,5 @@ export type AlertProps = {
   message: string,
   link: string,
   duration: number | number[],
-  id: number | null
+  id: string | null
 }

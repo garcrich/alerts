@@ -2,18 +2,21 @@ import { Stack } from "@mui/material"
 import { FC } from "react"
 import Alert from "./Alert/Alert"
 import { AlertProps } from './Alert/AlertType'
-
+import uuid from 'react-uuid'
+import { type } from "os"
 export type ActionType = {
   type: 'ADD_ALERT' | 'REMOVE_ALERT'
   payload: AlertProps,
 }
 
 export const useAlertReducer = (state: AlertProps[] | [], action: ActionType) => {
+  const { payload } = action;
   switch (action.type) {
     case 'ADD_ALERT':
-      return [...state, action.payload];
+      payload.id = payload.id ? payload.id : uuid()
+      return [...state, payload];
     case 'REMOVE_ALERT':
-      return state.filter(alert => alert.id !== action.payload.id)
+      return state.filter(alert => alert.id !== payload.id)
     default:
       throw new Error()
   }

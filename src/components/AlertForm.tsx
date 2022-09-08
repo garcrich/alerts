@@ -1,7 +1,6 @@
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from '@mui/material';
-import { ChangeEvent, FC, useState } from 'react';
-import { AlertProps, SeverityType } from './Alert/AlertType';
-import uuid from 'react-uuid';
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from '@mui/material'
+import { ChangeEvent, FC, useState } from 'react'
+import { AlertProps, SeverityType } from './Alert/AlertType'
 const AlertForm: FC<any> = ({ dispatch }) => {
   type textFieldType = 'title' | 'message' | 'link'
   const defaultState: AlertProps = {
@@ -30,7 +29,7 @@ const AlertForm: FC<any> = ({ dispatch }) => {
 
     dispatch({
       type: 'ADD_ALERT',
-      payload: { ...alertSubmission, id: uuid(), link: protocolLink }
+      payload: { ...alertSubmission, link: protocolLink }
     })
     setAlertSubmission(defaultState)
   }
