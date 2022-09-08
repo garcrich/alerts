@@ -1,12 +1,15 @@
 import './App.scss';
-import AlertManager from './components/AlertManager';
+import AlertManager, { useAlertReducer } from './components/AlertManager';
 import AlertForm from './components/AlertForm';
+import { useReducer } from 'react';
 
 function App() {
+  const [sentAlerts, dispatch] = useReducer(useAlertReducer, [])
+
   return (
     <div>
-      <AlertManager />
-      <AlertForm />
+      <AlertManager sentAlerts={sentAlerts} />
+      <AlertForm dispatch={dispatch} />
     </div>
   );
 }

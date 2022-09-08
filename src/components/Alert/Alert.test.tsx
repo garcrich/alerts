@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 
-import Alert, { AlertProps, MessageBody } from './Alert';
+import Alert, { MessageBody } from './Alert';
+import { AlertProps } from './AlertType'
 
 describe('Alerts suite', () => {
 
@@ -11,6 +12,8 @@ describe('Alerts suite', () => {
       title: 'testing',
       message: 'unit test',
       link: 'https://www.google.com',
+      duration: 10,
+      id: 1
     }
 
     render(<Alert {...props} />);
@@ -20,9 +23,11 @@ describe('Alerts suite', () => {
   });
 
   test('renders title', async () => {
-    const props: Omit<AlertProps, 'severity'> = {
+    const props: Omit<AlertProps, 'severity' | 'duration'> = {
       title: 'testing',
       message: 'unit test',
+      link: 'https://www.google.com',
+      id: 1
     }
 
     render(<MessageBody {...props} />);
@@ -35,8 +40,11 @@ describe('Alerts suite', () => {
   test('does not render title', async () => {
     const props: AlertProps = {
       severity: 'error',
+      title: '',
       message: 'unit test',
       link: 'https://www.google.com',
+      duration: 10,
+      id: 1
     }
 
     render(<Alert {...props} />);
@@ -52,6 +60,8 @@ describe('Alerts suite', () => {
       title: 'testing',
       message: 'unit test',
       link: 'https://www.google.com',
+      duration: 10,
+      id: 1
     }
 
     render(<Alert {...props} />);
@@ -67,6 +77,8 @@ describe('Alerts suite', () => {
       title: 'testing',
       message: 'unit test',
       link: 'https://www.google.com',
+      duration: 10,
+      id: 1
     }
 
     render(<Alert {...props} />);
@@ -81,6 +93,9 @@ describe('Alerts suite', () => {
       severity: 'error',
       title: 'testing',
       message: 'unit test',
+      link: 'https://www.google.com',
+      duration: 10,
+      id: 1
     }
 
     render(<Alert {...props} />);

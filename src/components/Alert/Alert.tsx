@@ -1,17 +1,11 @@
 import { Alert as MaterailAlert, AlertTitle, Link } from '@mui/material';
 import { FC } from 'react';
-
-export type AlertProps = {
-  severity: 'error' | 'warning' | 'info' | 'success',
-  title?: string | undefined,
-  message: string,
-  link?: string | undefined
-}
+import { AlertProps } from './AlertType';
 
 const Alert: FC<AlertProps> = ({ severity, title, link, message }) => {
   const hasLink: boolean = link !== '' && link !== undefined
   return (
-    <MaterailAlert onClose={() => { }} severity={severity}>
+    <MaterailAlert severity={severity}>
       <>
         {hasLink ?
           <Link href={link} target="_blank" rel="noreferrer">
@@ -24,7 +18,7 @@ const Alert: FC<AlertProps> = ({ severity, title, link, message }) => {
   )
 }
 
-export const MessageBody: FC<Omit<AlertProps, 'severity'>> = ({ title, message }) => {
+export const MessageBody: FC<{ title: string | undefined, message: string }> = ({ title, message }) => {
   return (
     <>
       {title && <AlertTitle data-testid={`${title}`}>{title}</AlertTitle>}
